@@ -1,2 +1,2 @@
-Username,Password,Logged in Status
+username,password,logged in
 username_test,pass123,True
