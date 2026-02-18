@@ -3,12 +3,12 @@ from helper import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
-	print('Welcome to da gamin hub bruh')
-	input('\033[32mPress dat enter button to start it dude > \033[0m')
+	print('Welcome to the gaming hub!')
+	input('\033[32mPress ENTER to begin > \033[0m')
 	#Loop forever:
 	while True:
 		#Display “MAIN MENU”
-		print('### MAIN MENU ###')
+		print('\033[30m###\033[0m MAIN MENU \033[30m###\033[0m')
 		#Ask user if they want to play a game, view a user, or log out
 		choice = choice_input(['1','2','3'],'Please choose an option: \n1. Play a Game\n2. View a User\n3. Log Out\n> ')
 		match choice:
@@ -39,10 +39,3 @@ def menu():
 		print('\033c', end='')
             
 menu()
-print('Ok by dude')
-print('did ya like da games')
-input()
-print('danks bro')
-print('hay bruh did u blame nathan tuday')
-input()
-print('gud job bruh')
