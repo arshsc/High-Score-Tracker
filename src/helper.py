@@ -1,4 +1,5 @@
 import csv
+import random as rand
 #user input
 def u_input(prompt = '> '):
     return input(prompt).lower().strip()
@@ -21,6 +22,8 @@ def choice_input(choices,prompt = '> '):
         choice = u_input(prompt)
         if choice in choices:
             return choice
+        elif choice.lower().strip() in ["idk", "i don't know", "i dont know"]:
+            return rand.choice(choices)
         else:
             print('Please select a valid choice!')
 #CSV to dictionary function
