@@ -82,7 +82,7 @@ def uniprint(to_print, indentation = ''):
                 print(f'{indentation}{key}:')
                 #uniprint value
                 uniprint(to_print[key],indentation + ' ')
-#save books function
+#save dictionary to csv function
 def save_csv(dic,save_to):
     #get header info
     header = dic[0].keys()
@@ -94,3 +94,23 @@ def save_csv(dic,save_to):
         writer.writeheader()
         #write all rows
         writer.writerows(dic)
+#search dictionary function
+def search(dictionaries):
+    #query = take user input "search"
+    query = u_input("Search: ")
+    #create list for potential matches
+    potential = []
+    #loop over list
+    for dic in dictionaries:
+        #loop through keys of current dictionary:
+        for feild in dic.keys():
+            #if potentials already contains current dictionary:
+            if dic in potential:
+                #break loop
+                break
+            #if current feild of current dictionary contains query:
+            if query in dic[feild].lower():
+                #add current dictionary to potential dictionaries
+                potential.append(dic)
+    #return potential books
+    return potential
