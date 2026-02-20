@@ -1,6 +1,7 @@
 # AC 2nd Accounts for High Score Tracker
 
 import csv
+from helper import *
 
 accounts = []
 
@@ -21,7 +22,7 @@ def load_library():
 
 
 def check_usernames(search_username):
-    username_header = "Username"
+    username_header = "username"
 
     with open(file_path, mode='r', newline='') as file:
         reader = csv.DictReader(file)
@@ -32,7 +33,7 @@ def check_usernames(search_username):
                 return True
     return False
 
-def check_password(username, password):
+def check_password(file_path, username, password):
     pass
     
 def login():
@@ -44,7 +45,7 @@ def login():
 
         if username_exist == False:
             while True:
-                choice = input("\nUsername does not exist as an account.\n\n1. Enter Another Username\n\n2. Create an Account\n\nChoice: ").strip()
+                choice = input("\nUsername does not exist as an account.\n\n1. Enter Another Username\n2. Create an Account\n\nChoice: ").strip()
 
                 if choice == "1":
                     break
@@ -58,6 +59,12 @@ def login():
 
         elif username_exist:
             password = input("\nEnter Password: ")
+            password_match = check_password(file_path, username, password)
+
+            if password_match:
+                print("True")
+            elif not password_match:
+                print("False")
 
 
                
