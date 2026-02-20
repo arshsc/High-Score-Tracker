@@ -1,24 +1,29 @@
 #Import the csv library
-import csv
+from helper import *
 
 #Make a function called the high score tracker (it will be called every time someone gets a score), using the user account, game, and new score as a parameter
 def score_recorder(user, game, new_score)
 	#Have the computer attempt to 
-    try:
+	try:
 		#Call the csv to dictionary function that changes the csv to a dictionary
-        #I don't know the csv file information and therefore cannot call its relative path
+		high_scores = csv_to_dictionary("docs/high_scores.csv")
 	#If it doesn’t work
-    except Exception as e:
+	except Exception as e:
 		#Tell the player that the file is not found
-        print(f"You had a {e} error. ")
+		print(f"You had a {e} error. ")
 	#Otherwise if it does work
-    else:
+	else:
+		for users in high_scores:
+			if high_scores[users] == user:
+				if high_scores[users][game] < new_score:
+					print(f"You beat your high score of {high_scores[users][game]}! ")
+					high_scores[users][game] = new_score
 		#Update the dictionary
-
-		#Call the function that shows the high score of the player
+		save_csv(high_scores, "docs/high_scores.csv")
 
 
 #Make a function that finds the high score of the player, with the player and game as parameters
+def high_score_player():
 	#Have the computer attempt to 
 		#Call the csv to dictionary function that changes the csv to a dictionary
 	#If it doesn’t work
