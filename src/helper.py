@@ -82,3 +82,15 @@ def uniprint(to_print, indentation = ''):
                 print(f'{indentation}{key}:')
                 #uniprint value
                 uniprint(to_print[key],indentation + ' ')
+#save books function
+def save_csv(dic,save_to):
+    #get header info
+    header = dic[0].keys()
+    #open file
+    with open(save_to,'w',newline='') as file:
+        #create dict writer object
+        writer = csv.DictWriter(file,header)
+        #write header
+        writer.writeheader()
+        #write all rows
+        writer.writerows(dic)
