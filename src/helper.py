@@ -28,6 +28,15 @@ def choice_input(choices,prompt = '> '):
             print('Please select a valid choice!')
 #CSV to dictionary function
 def csv_to_dictionary(file_path):
+    try:
+        with open(file_path, mode = 'r'):
+            pass
+    except FileNotFoundError:
+        print('An error was encountered! Invalid file path.')
+        return {'error': FileNotFoundError}
+    except Exception as e:
+        print(f"An unexpected error was encountered: {e}. ")
+        return {'error': e}
     #create empty list
     finished = []
     #open csv file in read mode
@@ -84,6 +93,15 @@ def uniprint(to_print, indentation = ''):
                 uniprint(to_print[key],indentation + ' ')
 #save dictionary to csv function
 def save_csv(dic,save_to):
+    try:
+        with open(save_to, mode = 'r'):
+            pass
+    except FileNotFoundError:
+        print('An error was encountered! Invalid file path.')
+        return {'error': FileNotFoundError}
+    except Exception as e:
+        print(f"An unexpected error was encountered: {e}. ")
+        return {'error': e}
     #get header info
     header = dic[0].keys()
     #open file
@@ -114,3 +132,4 @@ def search(dictionaries):
                 potential.append(dic)
     #return potential books
     return potential
+csv_to_dictionary('docs/blame_nathan')
