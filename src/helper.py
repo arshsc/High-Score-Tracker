@@ -132,4 +132,3 @@ def search(dictionaries):
                 potential.append(dic)
     #return potential books
     return potential
-csv_to_dictionary('docs/blame_nathan')
