@@ -25,14 +25,23 @@ def high_score_player(user, game):
 
 #Make a function that displays the high scores, using the game as the parameter
 def high_score_collective(game):
-	#Have the computer attempt to 
-		#Call the csv to dictionary function that changes the csv to a dictionary and returns the dictionary
-	#If it doesn’t work
-		#Tell the player that the file is not found
-	#Otherwise if it does work
-		#Make a loop that repeats for every player in the csv file
-			#Make a loop that loops through all the previous names
-				#If the name is bigger than the next name
-				#Put the name in the list in front of the other one
-		#Make a loop that repeats for every name in the list
-			#Print the name and their score
+	rankings = []
+	#Call the csv to dictionary function that changes the csv to a dictionary and returns the dictionary
+	high_scores = csv_to_dictionary("docs/high_scores.csv")
+	#Make a loop that repeats for every player in the csv file
+	for high_score in high_scores:
+		#Make a loop that loops through all the previous names
+			for previous_score in rankings:
+			#If the name is bigger than the next name
+				if high_score[game] > previous_score[game]:
+			#Put the name in the list in front of the other one
+					rankings.insert((rankings.index(previous_score) - 1), high_score)
+					break
+			if not rankings:
+					rankings.append(high_score)
+	#Make a loop that repeats for every name in the list
+	for score in rankings:
+		#Print the name and their score
+		print(f"{score["user"]}: {score[game]}")
+
+high_score_collective("flesh cube")
