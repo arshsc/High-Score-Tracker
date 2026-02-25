@@ -1,5 +1,6 @@
 #Import all used functions
 from helper import *
+from accounts_arsh import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
@@ -24,10 +25,15 @@ def menu():
 				#ask them what user to view
 				user = u_input('What user do you want to view?\n> ')
 				#if that user exists:
-				#retrieve user data (accounts)
-				#uniprint it
-			#otherwise:
-				#tell them that user doesn’t exist
+				valid_user, user_data= check_usernames(user)
+				if valid_user:
+					#retrieve user data (accounts)
+					#uniprint it
+					uniprint(user_data)
+				#otherwise:
+				else:
+					#tell them that user doesn’t exist
+					print('That user does not exist!')
 			case '3':
 			#if they chose to log out:
 				#set logged in to false (accounts)
