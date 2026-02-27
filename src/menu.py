@@ -1,6 +1,7 @@
 #Import all used functions
 from helper import *
 from accounts_arsh import *
+from investments import invest
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
@@ -18,6 +19,17 @@ def menu():
 				#Ask them what game they want to play
 				game = choice_input(['1','2','3','4','5'],'What game do you want to play?\n1. Flesh Cube\n2. Memory Game\n3. Turtarria\n4. The Bank\n5. Rock Paper Scissors\n> ')
 				#call respective game function
+				match game:
+					case '1':
+						pass
+					case '2':
+						pass
+					case '3':
+						pass
+					case '4':
+						score = invest()
+					case '5':
+						pass
 				#retrieve respective high score data
 				#run functions in high score tracking
 			#if they chose to view a user:
