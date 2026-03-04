@@ -1,6 +1,6 @@
 #Import all used functions
 from helper import *
-from accounts_arsh import *
+#from accounts_arsh import *
 from investments import invest
 from b_games import *
 from flesh_cube_two import *
@@ -39,7 +39,7 @@ def menu():
 				#ask them what user to view
 				user = u_input('What user do you want to view?\n> ')
 				#if that user exists:
-				valid_user, user_data= check_usernames(user)
+				valid_user, user_data= False,False#check_usernames(user)
 				if valid_user:
 					#retrieve user data (accounts)
 					#uniprint it

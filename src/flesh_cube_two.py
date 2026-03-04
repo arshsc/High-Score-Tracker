@@ -157,5 +157,3 @@ def runFleshCubeII(high_score):
 
     print(" ")
     return score, highScore
-
-runFleshCubeII()
