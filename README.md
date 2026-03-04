@@ -3,7 +3,8 @@
 Paragraph
 
 ## How to use the Project
-1. Press play
+1. Install BCrypt ('pip install bcrypt' in terminal)
+2. Install PyGame ('pip install pygame' in terminal)
 2. Use the thing
 3. You did it
 
@@ -12,6 +13,7 @@ Paragraph
 - Competitive high score tracking
 - User profiles
 - Saves between runs
+
 ## Contributors
 - BdzUcas (Helper functions, Main menu, User experience design)
 - archsc (Account management, Repository management)

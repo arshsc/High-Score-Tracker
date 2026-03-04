@@ -1,5 +1,7 @@
 import csv
 import random as rand
+from pathlib import Path
+
 #user input
 def u_input(prompt = '> '):
     return input(prompt).lower().strip()
@@ -133,3 +135,11 @@ def search(dictionaries):
                 potential.append(dic)
     #return potential books
     return potential
+
+
+"""def get_target_path_file(path_file):
+    current_file_path = Path(__file__).resolve()
+    current_dir = current_file_path.parent
+    parent_dir = current_dir.parent
+    target_file_path = parent_dir / "docs" / path_file
+    return target_file_path"""

@@ -2,29 +2,30 @@
 
 import csv
 from helper import *
+from password import *
+from pathlib import Path
+current_file_path = Path(__file__).resolve()
+current_dir = current_file_path.parent
+parent_dir = current_dir.parent
+target_file_path = parent_dir / "docs" / "accounts.csv"
 
 accounts = []
+accounts.clear()
+try:
+    with open(target_file_path, "r", newline="") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            account = {"Username": row["Username"], "Password": row["Password"], "Logged in Status": row["Logged in Status"]}
+            accounts.append(account)
 
-file_path = "docs/accounts.csv"
-
-def load_library():
-    accounts.clear()
-
-    try:
-        with open(file_path, "r", newline="") as file:
-            reader = csv.DictReader(file)
-            for row in reader:
-                account = {"Username": row["Username"], "Password": row["Password"], "Logged in Status": row["Logged in Status"]}
-                accounts.append(account)
-
-    except:
-        print(f"\nFile '{file_path}' not found.")
+except:
+    print(f"\nFile '{target_file_path}' not found.")
 
 
 def check_usernames(search_username):
     username_header = "username"
 
-    with open(file_path, mode='r', newline='') as file:
+    with open("docs\\target_file_path.csv", mode='r', newline='') as file:
         reader = csv.DictReader(file)
 
         for row in reader:
@@ -32,16 +33,13 @@ def check_usernames(search_username):
             if row[username_header] == search_username:
                 return True, {'username': row['username'], 'logged in': row['logged in']}
     return False, {}
-
-def check_password(file_path, username, password):
-    pass
     
 def login():
     typing_username = True
 
     while typing_username:
         username = input("\nEnter Username: ").strip()
-        username_exist, filler = check_usernames(username)
+        username_exist = check_usernames(username)
 
         if username_exist == False:
             while True:
@@ -51,7 +49,6 @@ def login():
                     break
                 elif choice == "2":
                     # create account function
-                    print("\nCreate account function calls here")
                     typing_username = False
                     break
                 else:
@@ -59,7 +56,7 @@ def login():
 
         elif username_exist:
             password = input("\nEnter Password: ")
-            password_match = check_password(file_path, username, password)
+            password_match = pass_checker(password, )
 
             if password_match:
                 print("True")
@@ -70,6 +67,5 @@ def login():
                
 
 
-
-load_library()
+print(accounts)
 login()
