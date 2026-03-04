@@ -12,6 +12,7 @@ def int_input(max = 100000,prompt='> ',min = 0):
         except:
             print('Input is not a number!')
             continue
+        num = int(num)
         if num <= max and num >= min:
             return num
         else:

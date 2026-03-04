@@ -30,8 +30,8 @@ def check_usernames(search_username):
         for row in reader:
             # Note: CSV data is read as strings, so search_value should also be a string
             if row[username_header] == search_username:
-                return True
-    return False
+                return True, {'username': row['username'], 'logged in': row['logged in']}
+    return False, {}
 
 def check_password(file_path, username, password):
     pass
@@ -41,7 +41,7 @@ def login():
 
     while typing_username:
         username = input("\nEnter Username: ").strip()
-        username_exist = check_usernames(username)
+        username_exist, filler = check_usernames(username)
 
         if username_exist == False:
             while True:
