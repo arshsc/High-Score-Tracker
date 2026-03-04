@@ -25,7 +25,7 @@ except:
 def check_usernames(search_username):
     username_header = "username"
 
-    with open("docs\\target_file_path.csv", mode='r', newline='') as file:
+    with open(target_file_path, mode='r', newline='') as file:
         reader = csv.DictReader(file)
 
         for row in reader:

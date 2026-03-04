@@ -42,8 +42,6 @@ def run():
 
     print(f"Score: {score}")
 
-run()                    
-
 
 
             

@@ -1,7 +1,11 @@
 #Import all used functions
 from helper import *
-from accounts_arsh import *
+#from accounts_arsh import *
 from investments import invest
+from b_games import *
+from flesh_cube_two import *
+from score import *
+from rememberinator import run
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
@@ -17,27 +21,31 @@ def menu():
 			#if they chose to play a game:
 			case '1':
 				#Ask them what game they want to play
-				game = choice_input(['1','2','3','4','5'],'What game do you want to play?\n1. Flesh Cube\n2. Memory Game\n3. Turtarria\n4. The Bank\n5. Rock Paper Scissors\n> ')
+				games = ['','flesh cube','remembrinator','guesser bros lite','turtarria','the bank','rock paper scissors']
+				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. Remembrinator\n3. Guesser Bros Lite\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
 				#call respective game function
 				match game:
 					case '1':
-						pass
+						user_score = runFleshCubeII(0)
 					case '2':
-						pass
+						user_score = guesser_bros_lite()
 					case '3':
-						pass
+						user_score = run()
 					case '4':
-						score = invest()
+						user_score = tuterria()
 					case '5':
-						pass
+						user_score = invest()
+					case '6':
+						user_score = rock_paper_scissors()
 				#retrieve respective high score data
+				high_score_collective(games[int(game)])
 				#run functions in high score tracking
 			#if they chose to view a user:
 			case '2':
 				#ask them what user to view
 				user = u_input('What user do you want to view?\n> ')
 				#if that user exists:
-				valid_user, user_data= check_usernames(user)
+				valid_user, user_data= False,False#check_usernames(user)
 				if valid_user:
 					#retrieve user data (accounts)
 					#uniprint it
