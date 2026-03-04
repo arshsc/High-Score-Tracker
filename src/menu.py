@@ -2,6 +2,8 @@
 from helper import *
 from accounts_arsh import *
 from investments import invest
+from b_games import *
+from flesh_cube_two import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
@@ -17,19 +19,19 @@ def menu():
 			#if they chose to play a game:
 			case '1':
 				#Ask them what game they want to play
-				game = choice_input(['1','2','3','4','5'],'What game do you want to play?\n1. Flesh Cube\n2. Memory Game\n3. Turtarria\n4. The Bank\n5. Rock Paper Scissors\n> ')
+				game = choice_input(['1','2','3','4','5'],'What game do you want to play?\n1. Flesh Cube\n2. Guesser Bros Lite\n3. Turtarria\n4. The Bank\n5. Rock Paper Scissors\n> ')
 				#call respective game function
 				match game:
 					case '1':
-						pass
+						score = runFleshCubeII(0)
 					case '2':
-						pass
+						score = guesser_bros_lite()
 					case '3':
-						pass
+						score = tuterria()
 					case '4':
 						score = invest()
 					case '5':
-						pass
+						score = rock_paper_scissors()
 				#retrieve respective high score data
 				#run functions in high score tracking
 			#if they chose to view a user:

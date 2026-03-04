@@ -113,6 +113,6 @@ def user_creator():
         print("That username is already being used. ")
     user_password = password()
     user_password = pass_encoder(user_password)
-    dictionary.append() = {'username': name, 'password': user_password, 'logged in': 'True'}
+    dictionary.append({'username': name, 'password': user_password, 'logged in': 'True'})
     save_csv(dictionary, "docs/accounts.csv")
                 
