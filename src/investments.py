@@ -292,12 +292,15 @@ def invest():
                         print(f'You win ${betting_value}!')
                         money += betting_value
                         t.sleep(1)
-                        print('Come back later, will you?')
+                        print('Come back later!')
+                        t.sleep(1)
+                        print('Or don\'t.')
                     else:
                         print('Aw, you lost.')
                         t.sleep(1)
                         print('Too bad!')
-                        t.sleep(1)
+                        t.sleep(2)
+                        print('Tooo bad.')
                 else:
                     print('You don\'t have enough money!')
         else:
