@@ -8,7 +8,7 @@ def invest():
     input_end = ['end','terminate','exit','7','done','lose','win','die']
     input_lottery = ['6','lottery']
     input_coin_flip = ['4','coin','flip','coin flip']
-    input_yes = ['yes','y','yep','yes please','yess','ye','sure','why not','absolutely','let\'s do it','do it','go ahead','coin flip','coin','flip','cool','uh huh','yeah','let\'s start','start','let\'s','lets do it','lets start']
+    input_yes = ['yes','y','yep','yes please','yess','ye','sure','why not','ok','okay','absolutely','let\'s do it','do it','go ahead','coin flip','coin','flip','cool','uh huh','yeah','let\'s start','start','let\'s','lets do it','lets start','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','30','40','50','60','70','80','90','100','200','500','1000']
     input_head = ['heads','head','h']
     input_tails = ['tails','tail','t']
     print('Hello.')
@@ -251,7 +251,7 @@ def invest():
             t.sleep(1.5)
             print(f'And you choose the price!')
             t.sleep(1)
-            print('Well then, shall we?')
+            print('Well then, shall we? (yes/no)')
             yes_or_no = input().replace('!','').strip().lower()
             if yes_or_no in input_yes:
                 betting_value = int_input(prompt='How much would you like to wager?\n')

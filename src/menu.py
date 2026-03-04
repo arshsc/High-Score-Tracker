@@ -21,8 +21,8 @@ def menu():
 			#if they chose to play a game:
 			case '1':
 				#Ask them what game they want to play
-				games = ['','flesh cube','remembrinator','guesser bros lite','turtarria','the bank','rock paper scissors']
-				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. Remembrinator\n3. Guesser Bros Lite\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
+				games = ['','flesh cube','rememberinator','guesser bros lite','turtarria','the bank','rock paper scissors']
+				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. rememberinator\n3. Guesser Bros Lite\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
 				#call respective game function
 				match game:
 					case '1':
