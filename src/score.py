@@ -43,5 +43,3 @@ def high_score_collective(game):
 	for score in rankings:
 		#Print the name and their score
 		print(f"{score["user"]}: {score[game]}")
-
-high_score_collective("flesh cube")
