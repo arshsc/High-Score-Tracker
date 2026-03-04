@@ -1,7 +1,7 @@
 from helper import *
 import bcrypt
 
-def pass_encoder(username, password):
+def pass_encoder(password):
     password_bytes = password.encode('utf-8')
     salt = bcrypt.gensalt()
     return bcrypt.hashpw(password_bytes, salt)
@@ -99,3 +99,20 @@ def password():
         check = input("Are you satisfied with your password? ").strip().lower()
         if check == "yes":
             return password
+
+def user_creator():
+    dictionary = csv_to_dictionary("docs/accounts.csv")
+    while True:
+        created = False
+        name = input("What will your username be? ")
+        for i in dictionary:
+            if name == i["username"]:
+                created = True
+        if created == False:
+            break
+        print("That username is already being used. ")
+    user_password = password()
+    user_password = pass_encoder(user_password)
+    dictionary.append() = {'username': name, 'password': user_password, 'logged in': 'True'}
+    save_csv(dictionary, "docs/accounts.csv")
+                
