@@ -6,11 +6,15 @@ from b_games import *
 from flesh_cube_two import *
 from score import *
 from rememberinator import run
+from password import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
 	print('Welcome to the gaming hub!')
 	input('\033[32mPress ENTER to begin > \033[0m')
+	check = choice_input(["yes", "no"], "Do you have an account? ")
+	if check == "yes": user = user_sign_in()
+	else: user = user_creator()
 	#Loop forever:
 	while True:
 		#Display “MAIN MENU”
@@ -21,7 +25,7 @@ def menu():
 			#if they chose to play a game:
 			case '1':
 				#Ask them what game they want to play
-				games = ['','flesh cube','remembrinator','guesser bros lite','turtarria','the bank','rock paper scissors']
+				games = ['','flesh cube','guesser bros lite','remembrinator','turtarria','the bank','rock paper scissors']
 				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. Remembrinator\n3. Guesser Bros Lite\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
 				#call respective game function
 				match game:
@@ -63,5 +67,3 @@ def menu():
 		input('\033[32mPress ENTER to continue > \033[0m')
 		#clear screen
 		print('\033c', end='')
-            
-menu()

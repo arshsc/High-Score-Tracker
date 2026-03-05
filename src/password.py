@@ -2,13 +2,10 @@ from helper import *
 import bcrypt
 
 def pass_encoder(password):
-    password_bytes = password.encode('utf-8')
-    salt = bcrypt.gensalt()
-    return bcrypt.hashpw(password_bytes, salt)
+    return bcrypt.hashpw(password.encode(), bcrypt.gensalt()).decode()
 
 def pass_checker(password, hashed):
-    password_bytes = password.encode('utf-8')
-    return bcrypt.checkpw(password_bytes, hashed)
+    return bcrypt.checkpw(password.encode(), hashed.encode())
 
 def password():
     passwords = ["1234", "password", "qwerty", "123456", "123456789", "123467890", "0987654321", "111111", "p@ssw0rd", "123123", "p@$$w0rd", "5678", "abcdefghijklmnopqrstuvwxyz", "aBcDeFgHiJkLmNoPqRsTuVwXyZ", "AbCdEfGhIjKlMnOpQrStUvWxYz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "qwertyuiop", "asdfghjkl", "asdfghjkl;'", "zxcvbnm,./", "/.,mnbvcxz", "';lkjhgfdsa", "lkjhgfdsa", "poiuytrewq"]
@@ -115,4 +112,18 @@ def user_creator():
     user_password = pass_encoder(user_password)
     dictionary.append({'username': name, 'password': user_password, 'logged in': 'True'})
     save_csv(dictionary, "docs/accounts.csv")
-                
+    return name
+
+def user_sign_in():
+    dictionary = csv_to_dictionary("docs/accounts.csv")
+    while True:
+        username = input("What is your username? ")
+        for i in dictionary:
+            if i["username"] == username:
+                i["logged in"] = True
+                save_csv(dictionary, "docs/accounts.csv")
+                check = False
+                while not check:
+                    password = input("What is your password? ")
+                    check = pass_checker(password, i["password"])
+                return username
