@@ -6,11 +6,15 @@ from b_games import *
 from flesh_cube_two import *
 from score import *
 from rememberinator import run
+from password import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
 	print('Welcome to the gaming hub!')
 	input('\033[32mPress ENTER to begin > \033[0m')
+	check = choice_input(["yes", "no"], "Do you have an account? ")
+	if check == "yes": user = user_sign_in()
+	else: user = user_creator()
 	#Loop forever:
 	while True:
 		#Display “MAIN MENU”
@@ -65,5 +69,3 @@ def menu():
 		input('\033[32mPress ENTER to continue > \033[0m')
 		#clear screen
 		print('\033c', end='')
-            
-menu()
