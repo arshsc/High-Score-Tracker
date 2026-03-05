@@ -3,25 +3,8 @@
 import csv
 from helper import *
 from password import *
-from pathlib import Path
-current_file_path = Path(__file__).resolve()
-current_dir = current_file_path.parent
-parent_dir = current_dir.parent
-target_file_path = parent_dir / "docs" / "accounts.csv"
 
-accounts = []
-accounts.clear()
-
-try:
-    with open(target_file_path, "r", newline="") as file:
-        reader = csv.DictReader(file)
-        for row in reader:
-            account = {"Username": row["Username"], "Password": row["Password"], "Logged in Status": row["Logged in Status"]}
-            accounts.append(account)
-
-except:
-    print(f"\nFile '{target_file_path}' not found.")
-
+accounts = csv_to_dictionary("docs/accounts.csv")
 
 def check_usernames(search_username):
     username_header = "username"
