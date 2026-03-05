@@ -117,13 +117,13 @@ def user_creator():
 def user_sign_in():
     dictionary = csv_to_dictionary("docs/accounts.csv")
     while True:
-        username = input("What is your username? ")
+        username = input("Enter Username: ")
         for i in dictionary:
             if i["username"] == username:
                 i["logged in"] = True
                 save_csv(dictionary, "docs/accounts.csv")
                 check = False
                 while not check:
-                    password = input("What is your password? ")
+                    password = input("Enter Password: ")
                     check = pass_checker(password, i["password"])
                 return username

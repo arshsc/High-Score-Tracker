@@ -7,6 +7,7 @@ from flesh_cube_two import *
 from score import *
 from rememberinator import run
 from password import *
+from accounts_arsh import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
@@ -63,6 +64,10 @@ def menu():
 			case '3':
 			#if they chose to log out:
 				#set logged in to false (accounts)
+				for i in accounts:
+					if user == accounts[i]["username"]:
+						account[i]["logged in"] = False
+						save_csv(account, "docs/accounts.csv")
 				#exit function
 				break
 			#take a user input telling them to press enter to continue
