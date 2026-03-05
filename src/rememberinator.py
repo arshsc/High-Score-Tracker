@@ -2,6 +2,10 @@ from random import choice, randint
 from time import sleep
 
 def run():
+    print("Welcome to Rememberinator")
+    print("You will recieve a list aof characters, which you will enter in the order they were displayed")
+    input("Hit enter to start")
+    print("\x1b[2J\x1b[H", end="")
     def getRandom():
         return chr(randint(97, 122))
 
@@ -39,8 +43,9 @@ def run():
                         print("Incorrect")
                         gameOver = True
                         break;
-
+    
     print(f"Score: {score}")
+    return score
 
 
 

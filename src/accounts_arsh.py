@@ -39,17 +39,12 @@ def login():
                     print("\nPlease enter a valid choice (1 or 2)")
 
         elif username_exist:
-            password = input("\nEnter Password: ")
-            password_match = pass_checker(password, )
+            for i in accounts:
+                if i["username"] == username:
+                    password = input("\nEnter Password: ")
+                    password_match = pass_checker(password, i["password"])
 
             if password_match:
                 print("True")
             elif not password_match:
                 print("False")
-
-
-               
-
-
-print(accounts)
-login()

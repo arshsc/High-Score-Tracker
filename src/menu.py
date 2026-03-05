@@ -71,9 +71,16 @@ def menu():
 			case '3':
 			#if they chose to log out:
 				#set logged in to false (accounts)
+				accounts = csv_to_dictionary("docs/accounts.csv")
+				for i in accounts:
+					if user == i["username"]:
+						account[i]["logged in"] = False
+						save_csv(account, "docs/accounts.csv")
 				#exit function
-				break
+						break
 			#take a user input telling them to press enter to continue
 		input('\033[32mPress ENTER to continue > \033[0m')
 		#clear screen
 		print('\033c', end='')
+
+menu()
