@@ -8,7 +8,7 @@ def u_input(prompt = '> '):
 #number input
 def int_input(max = 100000,prompt='> ',min = 0):
     while True:
-        num = u_input(prompt)
+        num = u_input(prompt).replace('$','')
         try:
             num = int(num)
         except:
