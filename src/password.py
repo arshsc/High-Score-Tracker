@@ -120,7 +120,7 @@ def user_sign_in():
         username = input("Enter Username: ")
         for i in dictionary:
             if i["username"] == username:
-                i["logged in"] = True
+                i["logged in"] = "True"
                 save_csv(dictionary, "docs/accounts.csv")
                 check = False
                 while not check:
