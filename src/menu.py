@@ -7,6 +7,7 @@ from flesh_cube_two import *
 from score import *
 from rememberinator import run
 from password import *
+from accounts_arsh import *
 #main menu function:
 def menu():
 	#Welcome them to the gaming hub
@@ -25,8 +26,8 @@ def menu():
 			#if they chose to play a game:
 			case '1':
 				#Ask them what game they want to play
-				games = ['','flesh cube','rememberinator','guesser bros lite','turtarria','the bank','rock paper scissors']
-				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. rememberinator\n3. Guesser Bros Lite\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
+				games = ['','flesh cube','guesser bros lite','remembrinator','turtarria','the bank','rock paper scissors']
+				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. Guesser Bros Lite\n3. rememberinator\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
 				#call respective game function
 				match game:
 					case '1':
@@ -49,11 +50,18 @@ def menu():
 			#if they chose to view a user:
 			case '2':
 				#ask them what user to view
-				user = u_input('What user do you want to view?\n> ')
+				username = u_input('What user do you want to view?\n> ')
 				#if that user exists:
 				valid_user, user_data= False,False#check_usernames(user)
+				for i in accounts:
+					if accounts[i]["username"] == username:
+						valid_user = True
 				if valid_user:
 					#retrieve user data (accounts)
+					file = csv_to_dictionary("docs/high_scores.csv")
+					for i in file:
+						if i["username"] == username:
+							user_data = i
 					#uniprint it
 					uniprint(user_data)
 				#otherwise:
