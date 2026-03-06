@@ -23,7 +23,7 @@ def login():
 
     while typing_username:
         username = input("\nEnter Username: ").strip()
-        username_exist = check_usernames(username)
+        username_exist, user = check_usernames(username)
 
         if username_exist == False:
             while True:
@@ -48,3 +48,4 @@ def login():
                 print("True")
             elif not password_match:
                 print("False")
+    return username

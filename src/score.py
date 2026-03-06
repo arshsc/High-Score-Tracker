@@ -6,10 +6,10 @@ def score_recorder(user, game, new_score):
 	#Call the csv to dictionary function that changes the csv to a dictionary
 	high_scores = csv_to_dictionary("docs/high_scores.csv")
 	for users in high_scores:
-		if high_scores[users] == user:
-			if high_scores[users][game] < new_score:
-				print(f"You beat your high score of {high_scores[users][game]}! ")
-				high_scores[users][game] = new_score
+		if users['user'] == user:
+			if int(users[game]) < new_score:
+				print(f"You beat your high score of {users[game]}! ")
+				users[game] = new_score
 	#Update the dictionary
 	save_csv(high_scores, "docs/high_scores.csv")
 

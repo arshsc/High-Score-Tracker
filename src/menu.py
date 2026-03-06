@@ -1,6 +1,6 @@
 #Import all used functions
 from helper import *
-#from accounts_arsh import *
+from accounts_arsh import *
 from investments import invest
 from b_games import *
 from flesh_cube_two import *
@@ -13,8 +13,8 @@ def menu():
 	#Welcome them to the gaming hub
 	print('Welcome to the gaming hub!')
 	input('\033[32mPress ENTER to begin > \033[0m')
-	check = choice_input(["yes", "no"], "Do you have an account? ")
-	if check == "yes": user = user_sign_in()
+	check = choice_input(["yes", "y", "no", "n"], "Do you have an account? ")
+	if check in ["yes","y"]: user = user_sign_in()
 	else: user = user_creator()
 	#Loop forever:
 	while True:
@@ -43,7 +43,8 @@ def menu():
 					case '6':
 						user_score = rock_paper_scissors()
 				print(f'Your score was {user_score}!')
-				#score_recorder(user,games[int(game)],user_score)
+				score_recorder(user,games[int(game)],user_score)
+				print(f'High scores for {games[int(game)]}:')
 				#retrieve respective high score data
 				high_score_collective(games[int(game)])
 				#run functions in high score tracking
@@ -53,17 +54,24 @@ def menu():
 				username = u_input('What user do you want to view?\n> ')
 				#if that user exists:
 				valid_user, user_data= False,False#check_usernames(user)
+				accounts = csv_to_dictionary("docs/accounts.csv")
 				for i in accounts:
-					if accounts[i]["username"] == username:
+					if i["username"] == username:
 						valid_user = True
 				if valid_user:
 					#retrieve user data (accounts)
 					file = csv_to_dictionary("docs/high_scores.csv")
 					for i in file:
-						if i["username"] == username:
+						if i["user"] == username:
 							user_data = i
-					#uniprint it
-					uniprint(user_data)
+					#if there is no data:
+					if not user_data:
+						#tell the user
+						print('No high score data for given user!')
+					#otherwise:
+					else:
+						#uniprint it
+						uniprint(user_data)
 				#otherwise:
 				else:
 					#tell them that user doesn’t exist

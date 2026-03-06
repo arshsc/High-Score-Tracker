@@ -156,4 +156,4 @@ def runFleshCubeII(high_score):
     if score == highScore: print(f"{BOLD}{YELLOWTEXT}New High Score!{CLEAR}")
 
     print(" ")
-    return score, highScore
+    return score
