@@ -10,6 +10,7 @@ from password import *
 from accounts_arsh import *
 #main menu function:
 def menu():
+	print('\033c', end='')
 	#Welcome them to the gaming hub
 	print('Welcome to the gaming hub!')
 	input('\033[32mPress ENTER to begin > \033[0m')
