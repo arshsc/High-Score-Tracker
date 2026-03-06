@@ -5,7 +5,6 @@
 This project lets you login and create accounts to save your high scores for 5 unique and fun games. These games include Flesh Cube, Remembrinator, Guesser Bros Lite, Turtarria, The Bank, and Rock Paper Scissors. You can obtain high scores on each of these games which saves to your logged in account. You can also view other peoples highscores.
 
 ## How to use the Project
-***
 1. Install BCrypt ('pip install bcrypt' in terminal)
 2. Install PyGame ('pip install pygame' in terminal)
 2. Press Enter to Begin
@@ -14,7 +13,6 @@ This project lets you login and create accounts to save your high scores for 5 u
 5. Enter numbers for menu options or 'yes' and 'no' for yes/no prompts.
 
 ## Key Features
-***
 - Five fun and unique games
 - Competitive high score tracking
 - User profiles
@@ -22,7 +20,6 @@ This project lets you login and create accounts to save your high scores for 5 u
 - Encrypted passwords
 
 ## Contributors
-***
 - BdzUcas (Helper functions, Main menu, User experience design)
 - arshsc (Account management, Repository management)
 - benetrolson (High score tracking, Passwords, Comedic relief)
