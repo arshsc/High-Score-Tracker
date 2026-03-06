@@ -18,7 +18,8 @@ def password():
         low = False
         num = False
         #Ask the user for the password
-        password = u_input("Please write your prospective password. ")
+        password = input("Please write your prospective password.\n> \033[34m ")
+        print('\033[0m')
         #if it is longer than 7 letters
         if len(password) > 7:
             #add 1 to the password strength
@@ -113,7 +114,7 @@ def user_creator():
     dictionary.append({'username': name, 'password': user_password, 'logged in': 'True'})
     save_csv(dictionary, "docs\\accounts.csv")
     file = csv_to_dictionary("docs/high_scores.csv")
-    dictionary.append({'username': name, 'flesh cube': 0, 'remembrinator': 0, 'guesser bros lite': 0, 'turtarria': 0, 'the bank': 0, 'rock paper scissors': 0})
+    file.append({'user': name, 'flesh cube': 0, 'remembrinator': 0, 'guesser bros lite': 0, 'turtarria': 0, 'the bank': 0, 'rock paper scissors': 0})
     save_csv(file, "docs/high_scores.csv")
     return name
 
