@@ -74,8 +74,8 @@ def menu():
 				accounts = csv_to_dictionary("docs/accounts.csv")
 				for i in accounts:
 					if user == i["username"]:
-						account[i]["logged in"] = False
-						save_csv(account, "docs/accounts.csv")
+						user[i]["logged in"] = False
+						save_csv(user, "docs/accounts.csv")
 				#exit function
 						break
 			#take a user input telling them to press enter to continue

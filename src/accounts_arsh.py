@@ -9,7 +9,7 @@ accounts = csv_to_dictionary("docs/accounts.csv")
 def check_usernames(search_username):
     username_header = "username"
 
-    with open(target_file_path, mode='r', newline='') as file:
+    with open("docs/accounts.csv", mode='r', newline='') as file:
         reader = csv.DictReader(file)
 
         for row in reader:
