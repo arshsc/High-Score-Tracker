@@ -88,7 +88,7 @@ def password():
         elif strength == 1 or strength == 2:
             print("Your password is weak. Do better. ")
         elif strength == 0:
-            print("You and your password is a failure. ")
+            print("You and your password are a failure. ")
         else:
             print("You found the easter egg! Don't use it again. ")
         if password in passwords:
@@ -112,6 +112,9 @@ def user_creator():
     user_password = pass_encoder(user_password)
     dictionary.append({'username': name, 'password': user_password, 'logged in': 'True'})
     save_csv(dictionary, "docs/accounts.csv")
+    highscores = csv_to_dictionary("docs/high_scores.csv")
+    highscores.append({'user': name, 'flesh cube': 0, 'remembrinator': 0, 'guesser bros lite': 0, 'turtarria': 0, 'the bank': 0, 'rock paper scissors': 0})
+    save_csv(highscores, 'docs/high_scores.csv')
     return name
 
 def user_sign_in():
