@@ -3,7 +3,7 @@ from time import sleep
 
 def run():
     print("Welcome to Rememberinator")
-    print("You will recieve a list aof characters, which you will enter in the order they were displayed")
+    print("You will recieve a list of characters, which you will enter in the order they were displayed")
     input("Hit enter to start")
     print("\x1b[2J\x1b[H", end="")
     def getRandom():

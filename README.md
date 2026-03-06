@@ -19,6 +19,11 @@ This project lets you login and create accounts to save your high scores for 5 u
 - Saves between runs
 - Encrypted passwords
 
+## Installation Instructions
+***
+1. Install BCrypt ('pip install bcrypt' in terminal)
+2. Install PyGame ('pip install pygame' in terminal)
+
 ## Contributors
 - BdzUcas (Helper functions, Main menu, User experience design)
 - arshsc (Account management, Repository management)

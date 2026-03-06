@@ -111,10 +111,10 @@ def user_creator():
     user_password = password()
     user_password = pass_encoder(user_password)
     dictionary.append({'username': name, 'password': user_password, 'logged in': 'True'})
-    save_csv(dictionary, "docs/accounts.csv")
-    highscores = csv_to_dictionary("docs/high_scores.csv")
-    highscores.append({'user': name, 'flesh cube': 0, 'remembrinator': 0, 'guesser bros lite': 0, 'turtarria': 0, 'the bank': 0, 'rock paper scissors': 0})
-    save_csv(highscores, 'docs/high_scores.csv')
+    save_csv(dictionary, "docs\\accounts.csv")
+    file = csv_to_dictionary("docs/high_scores.csv")
+    dictionary.append({'username': name, 'flesh cube': 0, 'remembrinator': 0, 'guesser bros lite': 0, 'turtarria': 0, 'the bank': 0, 'rock paper scissors': 0})
+    save_csv(file, "docs/high_scores.csv")
     return name
 
 def user_sign_in():
