@@ -1,6 +1,6 @@
 # High Score Tracker
 ***
-![Image of running project](docs\image.png)
+<img width="493" height="128" alt="Screenshot 2026-03-06 101020" src="https://github.com/user-attachments/assets/9181d6fa-cb22-47b8-8443-58547b5c37a6" />
 
 This project lets you login and create accounts to save your high scores for 5 unique and fun games. These games include Flesh Cube, Remembrinator, Guesser Bros Lite, Turtarria, The Bank, and Rock Paper Scissors. You can obtain high scores on each of these games which saves to your logged in account. You can also view other peoples highscores.
 
