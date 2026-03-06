@@ -1,10 +1,13 @@
 import csv
 import random as rand
 from pathlib import Path
-
+b = '\033[34m'
+r = '\033[0m'
 #user input
 def u_input(prompt = '> '):
-    return input(prompt).lower().strip()
+    uinput = input(prompt + b).lower().strip()
+    print(r)
+    return uinput
 #number input
 def int_input(max = 100000,prompt='> ',min = 0):
     while True:

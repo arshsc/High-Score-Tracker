@@ -1,7 +1,7 @@
 # high score tracker
 import turtle
 import random
-
+from helper import *
 def rock_paper_scissors():
     score = 0
     robo_score = 0
@@ -34,7 +34,7 @@ def rock_paper_scissors():
         choose = 0
         print(f"Your score is :{score}")
         print(f"The robot's score is :{robo_score}")
-        choice = input("Which do you want to choose, rock(r), paper(p), or scissors(s)? If you want to quit, then write 'q'. ")
+        choice = u_input("Which do you want to choose, rock(r), paper(p), or scissors(s)? If you want to quit, then write 'q'. ")
         if choice == "q":
             break
         elif choice == "r":
@@ -87,8 +87,8 @@ def rock_paper_scissors():
             print(f"You chose scissors! {scissors}")
             print(f"The robot chose rock! {rock}")
             robo_score += 1
-        check = input("Do you want to stop playing? ").strip().lower()
-        if check == "yes":
+        check = choice_input(['yes','y','no','n'],"Do you want to stop playing? Yes/no").strip().lower()
+        if check in ["yes", 'y']:
             return score - robo_score
 
 def guesser_bros_lite():
@@ -99,7 +99,7 @@ def guesser_bros_lite():
         attempts = 0
         game_over = True
         while game_over:
-            guess = int(input("Enter your guess: "))
+            guess = int_input(prompt="Enter your guess: \n> ",max = 100)
             if attempts >= max_attempts:
                 print(f"Sorry, you've used all {max_attempts} attempts. The number was {number_to_guess}.")
                 game_over = False
@@ -112,8 +112,8 @@ def guesser_bros_lite():
             elif guess < number_to_guess:
                 attempts += 1
                 print("Too low! Try again.")  
-        check = input("Do you want to stop playing? ").strip().lower()
-        if check == "yes":
+        check = choice_input(['yes','y','no','n'],"Do you want to stop playing? ").strip().lower()
+        if check in ["yes","y"]:
             return attempts
 
 
@@ -149,10 +149,10 @@ def tuterria():
         turtles = [turtle1, turtle2, turtle3, turtle4, turtle5]
         setup(turtles)
         print(f"You have ${money}. ")
-        bet_choice = input("Which turtle do you want to bet on? If you don't want to bet on any, write anything. Blue(1), teal(2), green(3), orange(4), red(5). ")
+        bet_choice = u_input("Which turtle do you want to bet on? If you don't want to bet on any, write anything. Blue(1), teal(2), green(3), orange(4), red(5). ")
         if bet_choice in ["1", "2", "3", "4", "5"]:
             while True:
-                bet_amount = input("How much do you want to bet on this turtle? ")
+                bet_amount = u_input("How much do you want to bet on this turtle? ")
                 if bet_amount.isdigit():
                     bet_amount = int(bet_amount)
                 else:
@@ -190,8 +190,8 @@ def tuterria():
         if patience >= 5:
             print("JK. You asked for too much money! I'm not giving any money to you! You are being kicked out! ")
             return 0
-        check = input("Do you want to leave? If so, answer yes. ").strip().lower()
-        if check == "yes":
+        check = choice_input(['yes','y','n','no'],"Do you want to leave? Yes/no").strip().lower()
+        if check in ["yes",'y']:
             return money
 
 def setup(turtles):
