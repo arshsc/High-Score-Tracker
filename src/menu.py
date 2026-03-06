@@ -43,7 +43,8 @@ def menu():
 					case '6':
 						user_score = rock_paper_scissors()
 				print(f'Your score was {user_score}!')
-				#score_recorder(user,games[int(game)],user_score)
+				score_recorder(user,games[int(game)],user_score)
+				print(f'High scores for {games[int(game)]}:')
 				#retrieve respective high score data
 				high_score_collective(games[int(game)])
 				#run functions in high score tracking

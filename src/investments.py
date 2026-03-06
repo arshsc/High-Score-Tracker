@@ -99,7 +99,9 @@ def invest():
                 t.sleep(2)
                 print('Very legitamate.')
                 money += lottery_value
-                print(f'You now have {money}!')
+                t.sleep(2)
+                print(f'You now have ${money}!')
+                t.sleep(0.5)
             else:
                 print('You didn\'t win. Too bad!')
             lottery = 0
