@@ -10,6 +10,13 @@ from password import *
 from accounts_arsh import *
 #main menu function:
 def menu():
+	def save():
+		dictionary = csv_to_dictionary("docs/high_scores.csv")
+		for i in dictionary:
+			if i["user"] == user:
+				if int(i[games[int(game)]]) <= user_score:
+					i[games[int(game)]] = str(user_score)
+					save_csv(dictionary, "docs/high_scores.csv")
 	#Welcome them to the gaming hub
 	print('Welcome to the gaming hub!')
 	input('\033[32mPress ENTER to begin > \033[0m')
@@ -43,6 +50,7 @@ def menu():
 					case '6':
 						user_score = rock_paper_scissors()
 				print(f'Your score was {user_score}!')
+				save()
 				#score_recorder(user,games[int(game)],user_score)
 				#retrieve respective high score data
 				high_score_collective(games[int(game)])
@@ -53,14 +61,15 @@ def menu():
 				username = u_input('What user do you want to view?\n> ')
 				#if that user exists:
 				valid_user, user_data= False,False#check_usernames(user)
+				accounts = csv_to_dictionary("docs/accounts.csv")
 				for i in accounts:
-					if accounts[i]["username"] == username:
+					if i["username"] == user:
 						valid_user = True
 				if valid_user:
 					#retrieve user data (accounts)
 					file = csv_to_dictionary("docs/high_scores.csv")
 					for i in file:
-						if i["username"] == username:
+						if i["user"] == username:
 							user_data = i
 					#uniprint it
 					uniprint(user_data)
@@ -74,10 +83,10 @@ def menu():
 				accounts = csv_to_dictionary("docs/accounts.csv")
 				for i in accounts:
 					if user == i["username"]:
-						account[i]["logged in"] = False
-						save_csv(account, "docs/accounts.csv")
+						i["logged in"] = False
+						save_csv(accounts, "docs/accounts.csv")
 				#exit function
-						break
+						return
 			#take a user input telling them to press enter to continue
 		input('\033[32mPress ENTER to continue > \033[0m')
 		#clear screen
