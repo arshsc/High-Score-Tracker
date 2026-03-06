@@ -88,7 +88,7 @@ def password():
         elif strength == 1 or strength == 2:
             print("Your password is weak. Do better. ")
         elif strength == 0:
-            print("You and your password is a failure. ")
+            print("You and your password are a failure. ")
         else:
             print("You found the easter egg! Don't use it again. ")
         if password in passwords:

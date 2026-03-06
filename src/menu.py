@@ -1,6 +1,6 @@
 #Import all used functions
 from helper import *
-#from accounts_arsh import *
+from accounts_arsh import *
 from investments import invest
 from b_games import *
 from flesh_cube_two import *
@@ -20,8 +20,8 @@ def menu():
 	#Welcome them to the gaming hub
 	print('Welcome to the gaming hub!')
 	input('\033[32mPress ENTER to begin > \033[0m')
-	check = choice_input(["yes", "no"], "Do you have an account? ")
-	if check == "yes": user = user_sign_in()
+	check = choice_input(["yes", "y", "no", "n"], "Do you have an account? ")
+	if check in ["yes","y"]: user = user_sign_in()
 	else: user = user_creator()
 	#Loop forever:
 	while True:
@@ -71,8 +71,14 @@ def menu():
 					for i in file:
 						if i["user"] == username:
 							user_data = i
-					#uniprint it
-					uniprint(user_data)
+					#if there is no data:
+					if not user_data:
+						#tell the user
+						print('No high score data for given user!')
+					#otherwise:
+					else:
+						#uniprint it
+						uniprint(user_data)
 				#otherwise:
 				else:
 					#tell them that user doesn’t exist
