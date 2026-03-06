@@ -8,6 +8,8 @@ from score import *
 from rememberinator import run
 from password import *
 from accounts_arsh import *
+b = '\033[34m'
+r = '\033[0m'
 #main menu function:
 def menu():
 	print('\033c', end='')
@@ -22,13 +24,13 @@ def menu():
 		#Display “MAIN MENU”
 		print('\033[30m###\033[0m MAIN MENU \033[30m###\033[0m')
 		#Ask user if they want to play a game, view a user, or log out
-		choice = choice_input(['1','2','3'],'Please choose an option: \n1. Play a Game\n2. View a User\n3. Log Out\n> ')
+		choice = choice_input(['1','2','3'],f'Please choose an option: \n{b}1{r} Play a Game\n{b}2{r} View a User\n{b}3{r} Log Out\n> ')
 		match choice:
 			#if they chose to play a game:
 			case '1':
 				#Ask them what game they want to play
 				games = ['','flesh cube','guesser bros lite','remembrinator','turtarria','the bank','rock paper scissors']
-				game = choice_input(['1','2','3','4','5','6'],'What game do you want to play?\n1. Flesh Cube\n2. Guesser Bros Lite\n3. rememberinator\n4. Turtarria\n5. The Bank\n6. Rock Paper Scissors\n> ')
+				game = choice_input(['1','2','3','4','5','6'],f'What game do you want to play?{b}\n1{r} Flesh Cube{b}\n2{r} Guesser Bros Lite{b}\n3{r} Rememberinator{b}\n4{r} Turtarria{b}\n5{r} The Bank{b}\n6{r} Rock Paper Scissors\n> ')
 				#call respective game function
 				match game:
 					case '1':
@@ -83,10 +85,11 @@ def menu():
 				accounts = csv_to_dictionary("docs/accounts.csv")
 				for i in accounts:
 					if user == i["username"]:
-						user[i]["logged in"] = False
-						save_csv(user, "docs/accounts.csv")
-				#exit function
-						break
+						i["logged in"] = False
+						save_csv(accounts, "docs/accounts.csv")
+						#exit function
+						return
+				
 			#take a user input telling them to press enter to continue
 		input('\033[32mPress ENTER to continue > \033[0m')
 		#clear screen

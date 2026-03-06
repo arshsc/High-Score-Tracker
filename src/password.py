@@ -18,7 +18,7 @@ def password():
         low = False
         num = False
         #Ask the user for the password
-        password = input("Please write your prospective password. ")
+        password = u_input("Please write your prospective password. ")
         #if it is longer than 7 letters
         if len(password) > 7:
             #add 1 to the password strength
@@ -93,15 +93,15 @@ def password():
             print("You found the easter egg! Don't use it again. ")
         if password in passwords:
             print("That is so boring and typical. Why did you choose this password? Get more creative. I don't really like that you did this. ")
-        check = input("Are you satisfied with your password? ").strip().lower()
-        if check == "yes":
+        check = choice_input(['yes','y','no','n'],"Are you satisfied with your password? ")
+        if check in ["yes",'y']:
             return password
 
 def user_creator():
     dictionary = csv_to_dictionary("docs/accounts.csv")
     while True:
         created = False
-        name = input("What will your username be? ")
+        name = u_input("What will your username be? ")
         for i in dictionary:
             if name == i["username"]:
                 created = True
@@ -120,13 +120,14 @@ def user_creator():
 def user_sign_in():
     dictionary = csv_to_dictionary("docs/accounts.csv")
     while True:
-        username = input("Enter Username: ")
+        username = u_input("Enter Username: ")
         for i in dictionary:
             if i["username"] == username:
                 i["logged in"] = "True"
                 save_csv(dictionary, "docs/accounts.csv")
                 check = False
                 while not check:
-                    password = input("Enter Password: ")
+                    password = input("Enter Password: \033[34m")
+                    print('\033[0m')
                     check = pass_checker(password, i["password"])
                 return username

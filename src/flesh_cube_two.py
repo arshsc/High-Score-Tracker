@@ -2,6 +2,9 @@ import pygame as py
 from random import randint
 
 def runFleshCubeII(high_score):
+    print('The game has opened in a new window!')
+    print('Use SPACE to jump over obstacles!')
+    print('Do not close the window when you are done!')
     py.init()
 
     SCREEN_WIDTH = 1920
@@ -151,9 +154,9 @@ def runFleshCubeII(high_score):
     UNDERLINE = "\033[4m"
 
     print(" ")
-    print(f"{BOLD}{YELLOWTEXT}Score: {UNDERLINE}{score}{CLEAR}")
+    #print(f"{BOLD}{YELLOWTEXT}Score: {UNDERLINE}{score}{CLEAR}")
     
-    if score == highScore: print(f"{BOLD}{YELLOWTEXT}New High Score!{CLEAR}")
+    #if score == highScore: print(f"{BOLD}{YELLOWTEXT}New High Score!{CLEAR}")
 
     print(" ")
     return score
