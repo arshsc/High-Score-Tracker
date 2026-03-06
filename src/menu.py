@@ -101,5 +101,3 @@ def menu():
 		input('\033[32mPress ENTER to continue > \033[0m')
 		#clear screen
 		print('\033c', end='')
-
-menu()
